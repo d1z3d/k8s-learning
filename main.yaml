@@ -1,0 +1,27 @@
+user:
+  isAdmin: false
+  name: Andrew
+  age: 27
+  position: developer
+  skills:
+    - name: 'system analyst'
+      level: 5
+      description: |
+        Немного многострочного
+        описания
+    - name: 'vue'
+      level: 1
+      description: |
+        только начинаю 
+        изучать vue
+  address:
+    - country: Russia
+      city: 'unknown'
+      street: 'unknown'
+      house_number: 1
+      apartment_number: 2
+
+  pets:
+    - name: Kasya
+      kind: cat
+      isMeow: true
