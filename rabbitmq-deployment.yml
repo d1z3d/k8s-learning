@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: rabbitmq
-        image: rabbitmq:4.2.2
+        image: rabbitmq:4.2.2-management-alpine
         resources:
           limits:
             memory: "256Mi"
