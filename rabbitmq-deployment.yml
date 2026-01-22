@@ -24,9 +24,15 @@ spec:
             cpu: "200m"
         env:
           - name: SEED_USERNAME
-            value: some_user
+            valueFrom:
+              secretKeyRef:
+                name: rabbitmq-secret
+                key: SEED_USERNAME
           - name: SEED_USER_PASSWORD
-            value: some_password
+            valueFrom:
+              secretKeyRef:
+                name: rabbitmq-secret
+                key: SEED_USER_PASSWORD
         ports:
         - containerPort: 5672
         volumeMounts:
