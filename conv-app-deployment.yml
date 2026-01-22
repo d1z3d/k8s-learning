@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: conv-app-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      components: frontend
+  template:
+    metadata:
+      labels:
+        components: frontend
+    spec:
+      containers:
+      - name: conv-app
+        image: antonlarichev/conv-app:1.4
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "100m"
+          limits:
+            memory: "512Mi"
+            cpu: "200m"
+        ports:
+        - containerPort: 80
+        volumeMounts:
+          - name: conv-app-configuration
+            mountPath: /etc/app-configuration
+            readOnly: true
+      volumes:
+        - name: conv-app-configuration
+          configMap:
+            name: conv-app-conf
