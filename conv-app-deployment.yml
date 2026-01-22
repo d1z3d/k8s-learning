@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: conv-app
-        image: antonlarichev/conv-app:1.2
+        image: antonlarichev/conv-app:1.4
         resources:
           requests:
             memory: "512Mi"
@@ -24,3 +24,11 @@ spec:
             cpu: "200m"
         ports:
         - containerPort: 80
+        volumeMounts:
+          - name: conv-app-configuration
+            mountPath: /etc/app-configuration
+            readOnly: true
+      volumes:
+        - name: conv-app-configuration
+          configMap:
+            name: conv-app-conf
